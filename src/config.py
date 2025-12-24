@@ -11,6 +11,9 @@ MAX_STOCKS = 300
 DATA_FREQUENCY = "1mo"   # monthly data
 USE_ADJUSTED_PRICES = True
 
-DATA_DIR = Path("data")
-PRICES_PATH = Path("data/raw/prices.csv")
-UNIVERSE_CSV_PATH = Path("data/sp500_companies.csv")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = PROJECT_ROOT / "data"
+
+PRICES_PATH = DATA_DIR / "raw" / "prices.csv"
+UNIVERSE_CSV_PATH = DATA_DIR / "sp500_companies.csv"
+RF_CSV_PATH = DATA_DIR / "TB1YR.csv"
