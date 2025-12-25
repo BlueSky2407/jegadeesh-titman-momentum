@@ -16,4 +16,5 @@ DATA_DIR = PROJECT_ROOT / "data"
 
 PRICES_PATH = DATA_DIR / "raw" / "prices.csv"
 UNIVERSE_CSV_PATH = DATA_DIR / "sp500_companies.csv"
-RF_CSV_PATH = DATA_DIR / "TB1YR.csv"
+RF_CSV_PATH = DATA_DIR / "TB4WK.csv"
+FF3_PATH = DATA_DIR / "raw" / "ff3.csv"

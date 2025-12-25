@@ -19,8 +19,9 @@ def get_market_returns(START_DATE, END_DATE, DATA_FREQUENCY):
 
 def get_rf(path=RF_CSV_PATH):
     rf = pd.read_csv(path, parse_dates=["observation_date"])
-    rf = rf.rename(columns={"observation_date": "Date", "TB1YR": "Rf_Rate"})
+    rf = rf.rename(columns={"observation_date": "Date", "TB4WK": "Rf_Rate"})
     rf = rf.set_index("Date")
+    #since the rf rate is in annual percentage, we convert it to monthly decimal
     rf["Rf_Rate"] = rf["Rf_Rate"] / 100 / 12
     print(rf.head())
     return rf
