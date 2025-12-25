@@ -27,11 +27,14 @@ def get_rf(path=RF_CSV_PATH):
     return rf
 
 if __name__ == "__main__":
-    market_returns = get_market_returns(START_DATE, END_DATE, DATA_FREQUENCY)
-    rf = get_rf()
     path1 = DATA_DIR / "portfolio" / f"market_returns.csv"
     path1.parent.mkdir(parents=True, exist_ok=True)
     path2 = DATA_DIR / "portfolio" / f"rf_rate.csv"
     path2.parent.mkdir(parents=True, exist_ok=True)
-    market_returns.to_csv(path1)
-    rf.to_csv(path2)
+    if not path1.exists() and not path2.exists():
+        market_returns = get_market_returns(START_DATE, END_DATE, DATA_FREQUENCY)
+        rf = get_rf()
+        market_returns.to_csv(path1)
+        rf.to_csv(path2)
+    else:
+        print("alr loaded market returns and rf rate data")
