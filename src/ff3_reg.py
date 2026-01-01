@@ -19,5 +19,8 @@ def ff3_reg( portfolio_returns: pd.Series,
         'beta_mkt': model.params['RM'],
         'beta_smb': model.params['SMB'],
         'beta_hml': model.params['HML'],
+        't_beta_mkt': model.tvalues['RM'],
+        't_beta_smb': model.tvalues['SMB'],
+        't_beta_hml': model.tvalues['HML'],
         'r_squared': model.rsquared
     }
