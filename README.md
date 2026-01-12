@@ -124,7 +124,7 @@ This suggests that momentum crash risk is closely linked to periods of elevated 
 
 - I augment the baseline Jegadeesh–Titman (1993) momentum strategy with an ML-based crash risk classifier that predicts the probability of a momentum crash in the next month using only information available at time t.
 - A crash is defined as a next-month momentum return falling in the bottom 10% of its training-sample distribution, with the threshold fixed ex ante to avoid look-ahead bias.
-- Portfolio exposure is scaled smoothly as \( w_t = 1 - P(\text{crash}_{t+1} \mid X_t) \), reducing exposure during high crash-risk regimes.
+- Portfolio exposure is scaled smoothly as w_t = 1 - P(crash_(t+1)/X_t), reducing exposure during high crash-risk regimes.
 
 ### Features Used (All Observable at Time t)
 
