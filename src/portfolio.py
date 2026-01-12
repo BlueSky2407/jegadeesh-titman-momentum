@@ -3,16 +3,18 @@ import numpy as np
 from pathlib import Path
 
 from src.config import DATA_DIR
-from src.returns import load_prices, compute_monthly_returns
-from src.momentum_strategy import get_winner_loser_masks, rank_stocks, get_J_returns
+# from src.returns import load_prices, compute_monthly_returns
+# from src.momentum_strategy import get_winner_loser_masks, rank_stocks, get_J_returns
 
-def compute_portfolio_returns(J, K, skip=0):
+def compute_portfolio_returns(monthly_returns: pd.Series,
+                              winners: pd.Series, 
+                              losers: pd.Series, J, K, skip=0):
     #get all data
-    prices = load_prices()
-    monthly_returns = compute_monthly_returns(prices)
-    formation_returns = get_J_returns(J)
-    deciles = rank_stocks(formation_returns)
-    winners, losers = get_winner_loser_masks(deciles)
+    # prices = load_prices()
+    # monthly_returns = compute_monthly_returns(prices)
+    # formation_returns = get_J_returns(J)
+    # deciles = rank_stocks(formation_returns)
+    # winners, losers = get_winner_loser_masks(deciles)
 
     # if(skip==1):
     #     winners = winners.shift(1)
