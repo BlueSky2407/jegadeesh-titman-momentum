@@ -119,3 +119,35 @@ Volatility scaling:
 This suggests that momentum crash risk is closely linked to periods of elevated volatility and can be mitigated through dynamic position sizing.
 
 ---
+
+## ML-Based Momentum Crash Risk Filter
+
+- I augment the baseline Jegadeesh–Titman (1993) momentum strategy with an ML-based crash risk classifier that predicts the probability of a momentum crash in the next month using only information available at time t.
+- A crash is defined as a next-month momentum return falling in the bottom 10% of its training-sample distribution, with the threshold fixed ex ante to avoid look-ahead bias.
+- Portfolio exposure is scaled smoothly as \( w_t = 1 - P(\text{crash}_{t+1} \mid X_t) \), reducing exposure during high crash-risk regimes.
+
+### Features Used (All Observable at Time t)
+
+- **Momentum state**
+  - 1-month momentum return
+  - 3-month rolling mean of momentum returns
+  - 6-month rolling mean of momentum returns
+- **Risk state**
+  - 3-month rolling volatility of momentum returns
+  - 6-month rolling volatility of momentum returns
+  - Momentum drawdown (from rolling peak)
+- **Market state**
+  - Market return (1-month)
+  - 3-month rolling mean of market returns
+  - 6-month rolling beta of momentum returns with respect to the market
+
+### Performance: Baseline vs ML-Filtered Momentum (Out-of-Sample)
+
+| Strategy | Annualized Volatility | Sharpe | Max Drawdown | Skew |
+|--------|----------------------|--------|--------------|------|
+| Baseline Momentum | 0.1810 | 0.0958 | −0.1421 | −0.2295 |
+| ML-Filtered Momentum | 0.1539 | 0.1024 | −0.1193 | −0.2850 |
+
+The ML-based exposure filter reduces volatility by approximately **15%** and maximum drawdown by approximately **16%**, while modestly improving risk-adjusted performance as measured by the Sharpe ratio.
+
+---
