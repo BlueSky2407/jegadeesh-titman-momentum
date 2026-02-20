@@ -22,7 +22,7 @@ def annualized_volatility(returns: pd.Series) -> float:
 
 def sharpe_ratio(returns: pd.Series, risk_free_rate: float = 0.0) -> float:
     excess_returns = returns - risk_free_rate
-    mean_excess_return = excess_returns.mean()
+    mean_excess_return = excess_returns.mean()*12  #Annualized mean excess return
     std_excess_return = annualized_volatility(excess_returns)  #Annualized standard deviation
     if std_excess_return == 0:
         return np.nan

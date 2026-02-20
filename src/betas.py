@@ -7,9 +7,10 @@ def compute_rolling_beta(
     market: pd.Series,
     window: int = 12
 ):
+    ret, market = ret.align(market, join="inner")
     cov = ret.rolling(window).cov(market)
     var = market.rolling(window).var()
-    beta = cov / var
+    beta = (cov / var).shift(1)
     return beta
 
 # def compute_rolling_beta(
