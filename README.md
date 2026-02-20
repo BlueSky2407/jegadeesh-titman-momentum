@@ -100,25 +100,9 @@ To improve risk control, the momentum portfolio is **volatility scaled**:
 - Volatility estimated using rolling past returns
 - Position sizes scaled inversely with recent volatility
 - Leverage capped to maintain realistic constraints
-- Market Sharpe Ratio (same sample): **0.032**
+- Market Sharpe Ratio (same sample): **0.38**
 
 This approach adjusts exposure dynamically without altering the underlying signal.
-
-### Impact of Volatility Scaling
-
-| Strategy | Volatility | Sharpe | Max Drawdown | Skew |
-|--------|-----------|--------|--------------|------|
-| Unscaled Momentum | 19.6% | 0.073 | −53.5% | −1.56 |
-| Volatility-Scaled Momentum | **13.3%** | **0.086** | **−27.4%** | **−0.48** |
-
-Volatility scaling:
-- Cuts worst-case drawdowns by ~50%
-- Reduces negative skewness substantially
-- Improves risk-adjusted performance
-
-This suggests that momentum crash risk is closely linked to periods of elevated volatility and can be mitigated through dynamic position sizing.
-
----
 
 ## ML-Based Momentum Crash Risk Filter
 
