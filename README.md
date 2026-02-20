@@ -81,9 +81,9 @@ Risk metrics for the J = 6, K = 6 portfolios:
 
 | Portfolio | Annualized Volatility | Sharpe | Max Drawdown | Skew |
 |---------|----------------------|--------|--------------|------|
-| Winner | 19.7% | 0.125 | −47.1% | −0.17 |
-| Loser | 27.9% | 0.035 | −63.4% | 0.53 |
-| Momentum (W–L) | 19.6% | 0.073 | −53.5% | **−1.56** |
+| Winner | 19.7% | 1.496 | −47.1% | −0.17 |
+| Loser | 27.9% | 0.424 | −63.4% | 0.53 |
+| Momentum (W–L) | 19.6% | 0.87 | −53.5% | **−1.56** |
 
 Key observations:
 - Momentum exhibits **large drawdowns**
@@ -145,8 +145,8 @@ This suggests that momentum crash risk is closely linked to periods of elevated 
 
 | Strategy | Annualized Volatility | Sharpe | Max Drawdown | Skew |
 |--------|----------------------|--------|--------------|------|
-| Baseline Momentum | 0.1810 | 0.0958 | −0.1421 | −0.2295 |
-| ML-Filtered Momentum | 0.1539 | 0.1024 | −0.1193 | −0.2850 |
+| Baseline Momentum | 0.1810 | 1.149 | −0.1421 | −0.2295 |
+| ML-Filtered Momentum | 0.1539 | 1.224 | −0.1193 | −0.2850 |
 
 The ML-based exposure filter reduces volatility by approximately **15%** and maximum drawdown by approximately **16%**, while modestly improving risk-adjusted performance as measured by the Sharpe ratio.
 
